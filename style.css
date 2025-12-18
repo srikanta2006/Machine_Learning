@@ -1,0 +1,188 @@
+/* =================================
+   Apple Neutral Theme (No Green)
+================================= */
+
+/* ---------- Root Tokens ---------- */
+:root {
+    --bg-main: #f5f6f8;
+    --card-bg: rgba(255, 255, 255, 0.9);
+    --border-soft: rgba(15, 23, 42, 0.08);
+
+    --text-primary: #020617;
+    --text-secondary: #64748b;
+
+    --shadow-soft:
+        0 10px 30px rgba(15, 23, 42, 0.10);
+    --shadow-hover:
+        0 18px 44px rgba(15, 23, 42, 0.18);
+}
+
+/* ---------- App Background ---------- */
+.stApp {
+    background:
+        radial-gradient(800px circle at 10% 10%, rgba(99, 102, 241, 0.12), transparent 40%),
+        radial-gradient(700px circle at 90% 20%, rgba(168, 85, 247, 0.10), transparent 45%),
+        linear-gradient(180deg, #f8fafc 0%, #eef2f7 100%);
+    min-height: 100vh;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+                 Inter, system-ui, sans-serif;
+    color: var(--text-primary);
+}
+
+/* ---------- Glass Card ---------- */
+.card {
+    background: var(--card-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    border-radius: 22px;
+    padding: 32px;
+    margin: 28px 0;
+
+    border: 1px solid var(--border-soft);
+
+    box-shadow: var(--shadow-soft);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-hover);
+}
+
+/* ---------- Typography ---------- */
+h1 {
+    font-size: 2.1rem;
+}
+
+h2 {
+    font-size: 1.6rem;
+}
+
+h3 {
+    font-size: 1.25rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--text-primary);
+    font-weight: 600;
+    letter-spacing: -0.025em;
+}
+
+p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+/* ---------- Metric Cards (Apple Style) ---------- */
+div[data-testid="metric-container"] {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    border-radius: 18px;
+    padding: 20px 22px;
+
+    border: 1px solid var(--border-soft);
+    box-shadow:
+        0 10px 28px rgba(15, 23, 42, 0.12),
+        inset 0 1px 0 rgba(255, 255, 255, 0.85);
+
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+div[data-testid="metric-container"]:hover {
+    transform: translateY(-3px);
+    box-shadow:
+        0 18px 44px rgba(15, 23, 42, 0.18),
+        inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+/* Metric label */
+div[data-testid="metric-container"] label {
+    font-size: 0.78rem !important;
+    font-weight: 500 !important;
+    color: #64748b !important;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+/* Metric value */
+div[data-testid="metric-container"] div {
+    font-size: 1.9rem !important;
+    font-weight: 700 !important;
+    color: #020617 !important;
+}
+
+/* ---------- Prediction Box ---------- */
+.prediction-box {
+    background: linear-gradient(
+        135deg,
+        rgba(241, 245, 249, 0.95),
+        rgba(226, 232, 240, 0.95)
+    );
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+
+    padding: 28px;
+    border-radius: 20px;
+    text-align: center;
+
+    font-size: 22px;
+    font-weight: 700;
+    color: #020617;
+
+    margin-top: 24px;
+    border: 1px solid var(--border-soft);
+    box-shadow: 0 14px 30px rgba(15, 23, 42, 0.14);
+}
+
+/* ---------- DataFrames ---------- */
+.stDataFrame {
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid var(--border-soft);
+}
+
+/* ---------- Charts ---------- */
+canvas {
+    border-radius: 16px;
+}
+
+/* ---------- Animations ---------- */
+.card,
+div[data-testid="metric-container"],
+.prediction-box {
+    animation: fadeUp 0.5s ease forwards;
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* ===== Fix invisible metric values ===== */
+
+/* Metric value */
+span[data-testid="stMetricValue"] {
+    color: #020617 !important;   /* Deep slate / near-black */
+    font-weight: 700 !important;
+}
+
+/* Metric label */
+span[data-testid="stMetricLabel"] {
+    color: #64748b !important;   /* Muted gray */
+    font-size: 0.78rem !important;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+.metric-value.blue {
+    color: #1e40af;
+    font-size: 1rem;
+    font-weight: 700;
+}
